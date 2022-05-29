@@ -1,0 +1,27 @@
+.ant-modal-content{
+
+    border-radius: 18px !important;
+
+
+    
+}
+.ant-modal-header{
+    border-radius: 16px 16px 0 0 !important;
+    height: 10%;
+    color: #086288 !important;
+}
+.ant-modal-title{
+    color: #086288;
+}
+
+.modBtn{
+    background-color: #086288;
+   height: 2rem;
+   border-radius: 0.5rem;
+   color:white;
+   font-size: 0.75rem;
+   padding: 8px;
+   border: none;
+   
+}
+

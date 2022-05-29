@@ -1,0 +1,24 @@
+.background_{
+    
+    background-image: url(../Assets/bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    background-color: black;
+}
+.card_style{
+    margin: auto;
+}
+ .text1 {
+    color: white;
+    font-size: 300%;
+    font-family: Agrandir Variable;
+    text-align: left;
+    margin-top: 55%;
+    padding: 5%;
+    transform: translate(0, 30%);
+  }

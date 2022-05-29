@@ -1,0 +1,227 @@
+.code-box-demo p {
+  margin: 0;
+}
+.ant-card {
+  margin-bottom: 30px;
+}
+.card1 {
+  display: grid;
+  height: 500px;
+  margin: 10px;
+  width: 800px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 5%;
+  position: relative;
+}
+.container {
+  background-image: url(./Assets/bg.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  background-color: black;
+}
+.text1 {
+  color: white;
+  font-size: 300%;
+  font-family: Agrandir Variable;
+  text-align: left;
+  margin-top: 55%;
+  padding: 5%;
+  transform: translate(0, 30%);
+}
+.second_col {
+  background-color: rgb(69, 68, 68);
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+.first_row {
+  margin: 0px;
+  padding: 0px;
+  background-image: url("./Assets/img.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vw;
+  width: 60vw;
+  display: flex;
+  position: absolute;
+  border-radius: 8px;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: absolute;
+}
+
+.ant-card-body {
+  margin: 0;
+  padding: 0;
+}
+.image2 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  margin: auto;
+  padding: 20px;
+  height: 6rem;
+  width: 12rem;
+}
+.login_text {
+  color: rgba(255, 170, 23, 1);
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Abril Fatface, Regular;
+
+  text-align: center;
+  margin: auto;
+}
+.text_e_id {
+  padding: 1px;
+  color: white;
+  display: flex;
+  position: absolute;
+  transform: translate(85%, 15px);
+}
+
+.text_e_pass {
+  margin: 0;
+  padding: 1px;
+  transform: translate(110%, 15px);
+  color: white;
+  text-align: center;
+}
+.input {
+    margin:0px ;
+  width: 12rem;
+  margin: auto;
+  margin-top: 1rem;
+
+  border-radius: 0.5rem;
+}
+.btn_login {
+  text-align: left;
+  margin: auto;
+  width: 12.5rem;
+  color: white;
+  margin-left: 34%;
+
+  border-radius: 0.5rem;
+  font-family: Agrandir Variable, Bold;
+  background-color: rgba(255, 170, 23, 1);
+}
+.btn_cancel {
+  border-radius: 8px;
+  width: 100px;
+  background: rgb(69, 68, 68);
+  /* transform: translate(165%,-165%); */
+  /* position: fixed; */
+  color: white;
+  font-family: Agrandir Variable, Bold;
+
+  transform: translate(-32%);
+  border-color: rgba(255, 170, 23, 1);
+}
+
+.copyRight {
+  margin-top: 6.25rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 0.5rem;
+  color: white;
+}
+.btn_row {
+  margin: auto;
+  text-align: center;
+}
+
+/* @media only screen and (max-width: 600px) {
+  /* .btn_login {
+    width: 6rem;
+    margin-left: 34%;
+  }
+  .btn_cancel {
+    width: 100px;
+    transform: translate(-32%);
+  } */
+  /* .btn_row {
+    margin-left: 2rem;
+  } */
+/* } */ 
+
+@media only screen and (min-width: 600px) {
+  .btn_login {
+    width: 5rem;
+  
+    margin: 0;
+  }
+  .btn_cancel {
+    width: 5rem;
+    transform: translate(20%);
+  }
+  .btn_row {
+    margin-left: 1rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .btn_login {
+    width: 5rem;
+    margin-left: 2rem;
+    text-align: center;
+  
+  }
+  .btn_row {
+    margin-left: 2rem;
+  }
+  .btn_cancel {
+    width: 6rem;
+    z-index: -1;
+
+    transform: translate(-32%);
+   
+  }
+}
+@media only screen and (min-width: 800px) {
+  .btn_login {
+    width: 12.5rem;
+    margin-left: 34%;
+  }
+  .btn_cancel {
+    width: 100px;
+    transform: translate(-32%);
+  }
+  .btn_row {
+    margin-left: 0rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .btn_login {
+    width: 12.5rem;
+    margin-left: 34%;
+  }
+  .btn_cancel {
+    width: 100px;
+    transform: translate(-32%);
+    
+  }
+  .btn_row {
+    margin-left: 0rem;
+  }
+}
+.error{
+    margin: 0px;
+    padding: 0px;
+    font-size: small;
+    color: red;
+}
+.ant-btn{
+  display: flex !important;
+
+}

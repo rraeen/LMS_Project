@@ -1,0 +1,60 @@
+/* .container{
+    background-color: gray;
+    justify-content: center;
+    width: 30%;
+}
+.image2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin: auto;
+    padding: 20px;
+    height: 6rem;
+    width: 12rem;
+  }
+  .login_text {
+    color: rgba(255, 170, 23, 1);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Abril Fatface, Regular;
+  
+    text-align: center;
+    margin: auto;
+  }
+  .text_e_id {
+    padding: 1px;
+    color: white;
+    display: flex;
+    text-align: left;
+    transform: translateY(1.25rem);
+    
+ 
+  }
+  .text_e_pass {
+  
+    padding: 1px;
+    transform: translateY(1.25rem);
+    color: white;
+    
+  }
+  .copyRight {
+    margin-top: 4.25rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    
+  }
+  div.ant-row{
+      
+      margin:0px !important;
+      padding: 0px;
+      
+  }
+  .transform{
+      transform: translate(10px,10px) !important;
+  }
+  .text_{
+    font-Size:"1.25vw"
+  }
+  */
