@@ -1,12 +1,14 @@
 import { Badge } from "antd";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
+import DropComp from "../Atom/FormComp/DropComp";
 import Pop_newBatch from "../Atom/Form_Popup/Pop_newBatch";
 import "../Dashboard/dashboard.css";
 import ReusableTable from "../ReUse/ReusableTable";
 
 function Mentor() {
   let technologies=["react","Angular","javaScript"]
+  let TechOption=["react","Angular","javaScript"]
 
   
  let rowSelection = () => {}
@@ -80,7 +82,7 @@ function Mentor() {
      <Pop_newBatch type="text" text="Mentor Name"/>
         <Pop_newBatch type="" text="Employ ID"/>
         <Pop_newBatch  text="E-mail-ID"/>
-        <Pop_newBatch  text="Skills"/>
+        <DropComp  dropOption={TechOption} value={"Skills"}  />
       </>
   )
   

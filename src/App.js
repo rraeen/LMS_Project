@@ -5,10 +5,10 @@
 // // import card from "./Component/LoginCard";
 // // import LoginCard from "./Component/LoginCard";
 // import "./Component/index.css";
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 
 import NewLogin from "./Component/NewLogin";
-import Admin from "./Component/Page/Admin";
+import Admin from "./Component/Page/Branch";
 import Mentor from "./Component/Page/Mentor";
 import Employee from "./Component/Page/Request";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -25,56 +25,70 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // // import Login_form from "./Component/Atom/Login_form";
 // // import Grid from "./Component/Atom/Grid";
 // import Form from "./Component/Atom/Form";
-import Dashboard from './Component/Dashboard/Dashboard';
+import Dashboard from "./Component/Dashboard/Dashboard";
 import React from "react";
 import Model_add from "./Component/Atom/Model1/Model_add";
-import Button_model from './Component/Atom/Model1/Button_model';
-import Pop_newBatch from './Component/Atom/Form_Popup/Pop_newBatch';
-import BtnLogin from './Component/Atom/BtnLogin';
-import Login_form from './Component/Atom/Login_form';
-import ReusableTable from './Component/ReUse/ReusableTable';
-
-
-
-
-
-
-
-
-
-
+import Button_model from "./Component/Atom/Model1/Button_model";
+import Pop_newBatch from "./Component/Atom/Form_Popup/Pop_newBatch";
+import BtnLogin from "./Component/Atom/BtnLogin";
+import Login_form from "./Component/Atom/Login_form";
+import ReusableTable from "./Component/ReUse/ReusableTable";
+import Branch from "./Component/Page/Branch";
+import DropComp from "./Component/Atom/FormComp/DropComp";
+import EmployPage from "./Component/EmployLogin/EmployPage";
+import MentorPage from "./Component/MentorLogin/MentorPage";
 
 function App() {
+  // let arr=["male","female","other"]
   return (
-    <div>
-       <Dashboard/>
-       {/* <ReusableTable /> */}
+    // <Dashboard />
+    // <BtnLogin value='myButton' color='Red' bg_color='Yellow'/>
+    // <BtnLogin bg_color='red' color='yello'/>
+    //  <NewLogin/>
+    // <DropComp dropOption={["male","female","other"]}/>
+    // <MentorPage/>
+    // <EmployPage />
 
-       {/* <Pop_newBatch text='Batch Name' /> */}
-      {/* // <Button_model  btn_name={"Raunak"}  />
-      // <BtnLogin bg_color='red' value='hello'/>  */}
-     
-      {/* <Pop_newBatch /> */}
-     {/* <Model_add/> */}
-     {/* <Button_model /> */}
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<NewLogin />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Mentor" element={<MentorPage />} />
+          <Route path="/Employee" element={<EmployPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
 
-      {/* <NewLogin/> */}
-       {/* ________________________ */}
+    // <><h1>hello</h1></>
+    // <div>
+    //    {/* <Dashboard/> */}
+    //    {/* <Branch/> */}
+    //    {/* <ReusableTable /> */}
 
-      {/* <BrowserRouter>
-        <div className="App">
-          
-      
+    //    {/* <Pop_newBatch text='Batch Name' /> */}
+    //   {/* // <Button_model  btn_name={"Raunak"}  />
+    //   // <BtnLogin bg_color='red' value='hello'/>  */}
 
-         <Routes>
-            <Route path="/Admin" element={<Admin />} />
-            <Route path="/" element={<NewLogin />} />
-            <Route path="/Mentor" element={<Mentor />} />
-            <Route path="/Employee" element={<Employee />} />
-          </Routes>
-        </div>
-      </BrowserRouter>  */}
-    </div>
+    //   {/* <Pop_newBatch /> */}
+    //  {/* <Model_add/> */}
+    //  {/* <Button_model /> */}
+
+    //   {/* <NewLogin/> */}
+    //    {/* ________________________ */}
+
+    //   <BrowserRouter>
+    //     <div className="App">
+
+    //      <Routes>
+    //         <Route path="/Dashboard" element={<Dashboard />} />
+    //         <Route path="/" element={<NewLogin />} />
+    //         <Route path="/Mentor" element={<Mentor />} />
+    //         <Route path="/Employee" element={<Employee />} />
+    //       </Routes>
+    //     </div>
+    //   </BrowserRouter>
+    // </div>
   );
 }
 

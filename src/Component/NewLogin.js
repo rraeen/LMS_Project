@@ -8,11 +8,13 @@ import { Card } from "antd";
 import "./newLogin.css";
 
 import "antd/dist/antd.css";
-import { useNavigate } from "react-router";
+
 import axios from "axios";
+import { useNavigate } from "react-router";
+
 
 function NewLogin() {
-  // let move=useNavigate()
+  let move = useNavigate();
   const [db, setdb] = useState([]);
 
   const [user, setuser] = useState({
@@ -28,7 +30,7 @@ function NewLogin() {
       });
       if (res.request.status == 200) {
         console.log("login sucessfully");
-        console.log(res);
+        res.data.user.username === "Admin" ? move("/Dashboard") : move("/");
       }
     } catch (err) {
       console.log(err.message);
@@ -144,62 +146,72 @@ function NewLogin() {
           </Col>
           <Col className="second_col" span={10}>
             {/* ________________________________________________________________________________________ */}
-<Col span={16} offset={4}>
-            <Row>
-              <img className="image2" src={te_img} alt="" />
-            </Row>
-            <Row>
-              <p className="login_text">Login</p>
-            </Row>
-            <Row>
-              <p className="text_e_id"> Employee ID</p>
-            </Row>
-            <br />
-            <Row />
-            <Row>
-              <Input
-                className="input"
-                type="text"
-                name="Employee_id"
-                value={data.Employee_id}
-                onChange={updatefun}
-                placeholder="Enter Employee ID"
-              />
-            </Row>
-            {emp_error && <p className="error">{emp_error}</p>}
-            <Row>
-              <p className="text_e_pass">Password</p>
-            </Row>
-            <Row>
-              {" "}
-              <Input
-                className="input"
-                type="password"
-                name="Employee_pass"
-                onChange={updatefun}
-                value={data.Employee_pass}
-                placeholder="Enter password"
-              />
-            </Row>
-            {pass_error && <p className="error">{pass_error}</p>}
-            <br />
-
-            <div className="ant-col ant-col-xs-12 ant-col-sm-24">
-              <Row className="btn_row " span={24}>
-                <Col>
-                  <Button className="btn_login" onClick={savedata}>
-                    Login
-                  </Button>
-                </Col>
-                <br />
-                <Col>
-                  <Button className="btn_cancel">Cancel</Button>
-                </Col>
+            <Col span={16} offset={4}>
+              <Row>
+                <img className="image2" src={te_img} alt="" />
               </Row>
-              
-            </div>
+              <Row>
+                <p className="login_text">Login</p>
+              </Row>
+              <Row>
+                <p className="text_e_id"> Employee ID</p>
+              </Row>
+              <br />
+              <Row />
+              <Row>
+                <Input
+                  className="input"
+                  type="text"
+                  name="Employee_id"
+                  value={data.Employee_id}
+                  onChange={updatefun}
+                  placeholder="Enter Employee ID"
+                />
+              </Row>
+              {emp_error && <p className="error">{emp_error}</p>}
+              <Row>
+                <p className="text_e_pass">Password</p>
+              </Row>
+              <Row>
+                {" "}
+                <Input
+                  className="input"
+                  type="password"
+                  name="Employee_pass"
+                  onChange={updatefun}
+                  value={data.Employee_pass}
+                  placeholder="Enter password"
+                />
+              </Row>
+              {pass_error && <p className="error">{pass_error}</p>}
+              <br />
+
+              <div className="ant-col ant-col-xs-12 ant-col-sm-24">
+                <Row className="btn_row " span={24}>
+                  <Col>
+                    {/* <Button className="btn_login" onClick={savedata}> */}
+                    <button
+                      style={{ textAlign: "left" }}
+                      className="btnNewLogin"
+                      onClick={savedata}
+                    >
+                      Login
+                    </button>
+                  </Col>
+                  <br />
+                  <Col>
+                    <button className="btnNewCancel">Cancel</button>
+                  </Col>
+                </Row>
+              </div>
             </Col>
             <div className="copyRight">
+              <a
+                style={{ fontSize: "120%", color: "white", padding: "10px" }}
+                className="changePass"
+              >
+                change password
+              </a>
               <hr />
               Copyright &copy; 2018 Aleercio.com
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

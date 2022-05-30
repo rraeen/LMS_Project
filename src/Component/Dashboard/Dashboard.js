@@ -20,6 +20,7 @@ import { fontSize } from '@mui/system';
 import BtnLogin from './../Atom/BtnLogin';
 import { borderRadius } from '@mui/system';
 import Request from "../Page/Request";
+import Branch from "../Page/Branch";
 
 const { Header, Sider, Content } = Layout;
 
@@ -98,7 +99,9 @@ let sideBar=(data)=>{
                 
                   {" "}
                 
-               {sidebarData==="Batch"? <Table_card techValue={tech}/>:
+               {
+              //  sidebarData==="Batch"? <Table_card techValue={tech}/>:
+               sidebarData==="Batch"? <Branch techValue={tech}/>:
                
                sidebarData==="Mentor"?<Mentor/>: 
                sidebarData==="Request"?<Request/>: 
