@@ -9,13 +9,17 @@ import logo from "../Assets/logo1.png";
 import "antd/dist/antd.css";
 
 import { Input, Row } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { RightOutlined, SearchOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 // import { Radio } from "antd";
 import BtnFun from "./BtnFun";
 import Table_card from "./Table_card";
-import Employee from "../Page/Employee";
+import Employee from "../Page/Request";
 import Mentor from "./../Page/Mentor";
+import { fontSize } from '@mui/system';
+import BtnLogin from './../Atom/BtnLogin';
+import { borderRadius } from '@mui/system';
+import Request from "../Page/Request";
 
 const { Header, Sider, Content } = Layout;
 
@@ -24,7 +28,7 @@ const { Header, Sider, Content } = Layout;
 //   _____________________________________________________________________________________
 
 function Dashboard() {
-    const [sidebarData, setsidebarData] = useState("admin")
+    const [sidebarData, setsidebarData] = useState("Batch")
     const [tech, settech] = useState(["react","angular","javascript"])
     // ________________________________________button__________________________________________________
     const [placement, SetPlacement] = useState('');
@@ -63,7 +67,7 @@ let sideBar=(data)=>{
           </Col>
 
           <Col xs={8}>
-            <Button>Logout</Button>
+            <BtnLogin value="Logout" borderRadius="3%"hight="50%" color="#075575" marginTop="2%" border="1px solid #075575" bg_color="white"/>
           </Col>
         </Row>
       </Header>
@@ -75,10 +79,10 @@ let sideBar=(data)=>{
         <Content>
           <div className="site-card-border-less-wrapper">
             <div className="menu_div">
-              {" "}
-              <span>Home</span>{" "}
+             
+              <a className="home_hover">Home</a>
               <span style={{ color: "black" }}>
-                <b>&gt;{sidebarData} </b>
+                <b style={{fontFamily:"Open Sans, Semibold" ,fontSize:"10px"}}>&nbsp;&gt;&nbsp;{sidebarData} </b>
               </span>
             </div>
             <Row>
@@ -94,10 +98,10 @@ let sideBar=(data)=>{
                 
                   {" "}
                 
-               {sidebarData==="admin"? <Table_card techValue={tech}/>:
+               {sidebarData==="Batch"? <Table_card techValue={tech}/>:
                
-               sidebarData==="mentor"?<Mentor/>: 
-               sidebarData==="employee"?<Employee/>: 
+               sidebarData==="Mentor"?<Mentor/>: 
+               sidebarData==="Request"?<Request/>: 
               <h1>Login Page</h1>}  
                 </Col>
               </Row>

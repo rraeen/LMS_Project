@@ -289,6 +289,8 @@ background-color: blue;
 .batch_search{
 margin-top: 0.6rem;
 height: 5px !important;
+margin-left: auto; 
+margin-right: 1.5%;
 }
 .batch_btn{
 margin-top: 2rem;
@@ -301,5 +303,16 @@ font-family: Open Sans, Semibold;
 border: 1px solid #D89119 ;
 color: white;
 background: #FAA81D;
+
+}
+.btn_hide{
+    display: none!important;
+}
+a:hover{
+    color: #FAA81D !important;
+
+}
+.home_hover {
+    color:  gray;
 
 }

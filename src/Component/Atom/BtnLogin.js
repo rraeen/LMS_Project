@@ -1,3 +1,4 @@
+import { border } from "@mui/system";
 import { Button } from "antd";
 import React from "react";
 import "./Atom.css";
@@ -14,7 +15,8 @@ function BtnLogin({
   hight="",
   transform = "",
   radius="",
-  size=""
+  size="",
+  border=""
   
 }) {
   return (
@@ -23,7 +25,7 @@ function BtnLogin({
       style={{
         zIndex: Zindex,
         width: width,
-        
+        border:border, 
         height:hight,
         type: type,
         background: bg_color,

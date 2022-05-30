@@ -23,5 +23,21 @@
    padding: 8px;
    border: none;
    
+   
+}
+.model_center_input{
+   
+   
+        display: grid;
+        place-items: center;
+}
+
+.model_text{
+    color :#707070
+
+}
+*{
+    margin: 0px;
+    padding: 0px;
 }
 
