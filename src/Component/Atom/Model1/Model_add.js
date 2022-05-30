@@ -9,7 +9,7 @@ import BtnLogin from './../BtnLogin';
 import Button_model from "./Button_model";
 import Pop_newBatch from "../Form_Popup/Pop_newBatch";
 
-function Model_add({pop,setmodelpop,pop_title ="title"}) {
+function Model_add({pop,setmodelpop,pop_title ="title" ,renderFile}) {
   console.log(pop);
 
   const [visible, setVisible] = useState();
@@ -43,6 +43,7 @@ function Model_add({pop,setmodelpop,pop_title ="title"}) {
       
         title={pop_title}
         visible={pop}
+        renderFile={renderFile}
         onOk={handleOk}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
@@ -50,11 +51,16 @@ function Model_add({pop,setmodelpop,pop_title ="title"}) {
         // okText={"Create"}
        
       >
-        <Pop_newBatch  text="Batch Name"/>
-        <Pop_newBatch  text="Mentor Name"/>
+    
+        <div className="model_center_input">
+          {renderFile}
+{/*           
+        <Pop_newBatch type="text" text="Batch Name"/>
+        <Pop_newBatch type="" text="Mentor Name"/>
         <Pop_newBatch  text="Technologies"/>
         <Pop_newBatch  text="Start Date"/>
-        <Pop_newBatch  text="End Date"/>
+        <Pop_newBatch  text="End Date"/> */}
+        </div>
         
        
       </Modal>

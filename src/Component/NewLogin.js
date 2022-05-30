@@ -7,12 +7,34 @@ import { Input } from "antd";
 import { Card } from "antd";
 import "./newLogin.css";
 
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 function NewLogin() {
-    let move=useNavigate()
-    const [db, setdb] = useState([])
+  // let move=useNavigate()
+  const [db, setdb] = useState([]);
+
+  const [user, setuser] = useState({
+    uname: "",
+    pass: "",
+  });
+
+  let httpLogin = async () => {
+    try {
+      let res = await axios.post("http://localhost:1337/api/auth/local", {
+        identifier: data.Employee_id,
+        password: data.Employee_pass,
+      });
+      if (res.request.status == 200) {
+        console.log("login sucessfully");
+        console.log(res);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   const [logindata, setlogindata] = useState({
     Admin: "Admin",
     Mentor: "Mentor",
@@ -56,25 +78,27 @@ function NewLogin() {
       setemp_error("*Emplyee Id is required");
     }
   };
-  let saveToLocal=(value)=>{
-      localStorage.setItem("status",value)
-  }
+  let saveToLocal = (value) => {
+    localStorage.setItem("status", value);
+  };
 
-  let savedata=()=>{
-    passValidation()
-    empValidation()
-      if(empValidation() && passValidation){
-          loginfun()
-          let copydb=[...db]
-          copydb.push(logindata)
-          setdb(copydb)
-          localStorage.setItem("db",db)
-          setdata({
-          Employee_id: "",
-          Employee_pass: ""})
-      }
+  let savedata = () => {
+    passValidation();
+    empValidation();
+    if (empValidation() && passValidation) {
+      loginfun();
+      httpLogin();
 
-  }
+      let copydb = [...db];
+      copydb.push(logindata);
+      setdb(copydb);
+      localStorage.setItem("db", db);
+      setdata({
+        Employee_id: "",
+        Employee_pass: "",
+      });
+    }
+  };
 
   let loginfun = () => {
     if (
@@ -82,20 +106,19 @@ function NewLogin() {
       data.Employee_pass == logindata.Admin_Pass
     ) {
       console.log("Admin login");
-      move("/Admin")
-      saveToLocal("Admin")
-
+      // move("/Admin")
+      saveToLocal("Admin");
     } else if (
       data.Employee_id == logindata.Mentor &&
       data.Employee_pass == logindata.Mentor_pass
     ) {
       console.log("Mentor login");
-      move("/Mentor")
-      saveToLocal("Mentor")
+      // move("/Mentor")
+      saveToLocal("Mentor");
     } else {
       console.log("Employee login");
-      move("/Employee")
-      saveToLocal("Employee")
+      // move("/Employee")
+      saveToLocal("Employee");
     }
   };
 
@@ -103,15 +126,15 @@ function NewLogin() {
     e.preventDefault();
   };
 
-let moveToAdmin=()=>{
-    move("/Admin")
-}
+  let moveToAdmin = () => {
+    // move("/Admin")
+  };
 
   return (
     <div className="container">
       <Card className="card1">
         <Row className="first_row">
-          <Col className="first_col" sx={24} span={14}>
+          <Col className="first_col" span={14}>
             <div>
               <p className="text1">
                 Good thing on
@@ -119,9 +142,9 @@ let moveToAdmin=()=>{
               </p>
             </div>
           </Col>
-          <Col className="second_col" sx={24} span={10}>
+          <Col className="second_col" span={10}>
             {/* ________________________________________________________________________________________ */}
-
+<Col span={16} offset={4}>
             <Row>
               <img className="image2" src={te_img} alt="" />
             </Row>
@@ -134,7 +157,6 @@ let moveToAdmin=()=>{
             <br />
             <Row />
             <Row>
-                
               <Input
                 className="input"
                 type="text"
@@ -143,9 +165,8 @@ let moveToAdmin=()=>{
                 onChange={updatefun}
                 placeholder="Enter Employee ID"
               />
-             
             </Row>
-            {emp_error&&<p className="error">{emp_error}</p>}
+            {emp_error && <p className="error">{emp_error}</p>}
             <Row>
               <p className="text_e_pass">Password</p>
             </Row>
@@ -160,31 +181,24 @@ let moveToAdmin=()=>{
                 placeholder="Enter password"
               />
             </Row>
-            {pass_error&&<p className="error">{pass_error}</p>}
+            {pass_error && <p className="error">{pass_error}</p>}
             <br />
 
             <div className="ant-col ant-col-xs-12 ant-col-sm-24">
               <Row className="btn_row " span={24}>
                 <Col>
-                  <Button
-                    className="btn_login"
-                    
-                    onClick={savedata}
-                  >
+                  <Button className="btn_login" onClick={savedata}>
                     Login
                   </Button>
                 </Col>
                 <br />
                 <Col>
-                  <Button
-                    className="btn_cancel"
-                   
-                  >
-                    Cancel
-                  </Button>
+                  <Button className="btn_cancel">Cancel</Button>
                 </Col>
               </Row>
+              
             </div>
+            </Col>
             <div className="copyRight">
               <hr />
               Copyright &copy; 2018 Aleercio.com
@@ -201,4 +215,3 @@ let moveToAdmin=()=>{
 }
 
 export default NewLogin;
-

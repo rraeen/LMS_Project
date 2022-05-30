@@ -5,6 +5,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import Tech from "./Tech";
 import Button_model from "../Atom/Model1/Button_model";
 import { Badge } from "antd";
+import Pop_newBatch from "../Atom/Form_Popup/Pop_newBatch";
 
 function Table_card({ techValue = [] }) {
   // console.log(techValue);
@@ -45,10 +46,7 @@ function Table_card({ techValue = [] }) {
             );
           })}
 
-          {/* <Tech technologies="Java"/>
-      <Tech technologies="Java-Script"/>
-      <Tech technologies="react"/>
-      <Tech technologies="react"/> */}
+         
         </>
       ),
     },
@@ -77,9 +75,8 @@ function Table_card({ techValue = [] }) {
       render: () => {
         return (
           <>
-            <i class="fa-solid fa-pencil"></i> &#160; &#160;
-
-            <i class="fa-solid fa-trash"></i>
+            <i style={{cursor: 'pointer'}}   onClick={editDatafun} class="fa-solid fa-pencil"></i> &#160; &#160;
+            <i style={{cursor: 'pointer'}}  onClick={deleteDatafun} class="fa-solid fa-trash"></i>
           </>
         );
       },
@@ -87,13 +84,7 @@ function Table_card({ techValue = [] }) {
     },
   ];
 
-  const data = [
-    // {No:"1",Batch_ID:"121",Batch_Name:"Raunak",Mento_Name:"Shatyam sir" ,Technologies:"React",Start_Date:"April",End_Date:"May",Status:"Good",Action:"Deployed"},
-    // {No:"2",Batch_ID:"121",Batch_Name:"Raunak",Mento_Name:"Shatyam sir" ,Technologies:"React",Start_Date:"April",End_Date:"May",Status:"Good",Action:"Deployed"},
-    // {No:"3",Batch_ID:"121",Batch_Name:"Raunak",Mento_Name:"Shatyam sir" ,Technologies:"React",Start_Date:"April",End_Date:"May",Status:"Good",Action:"Deployed"},
-    // {No:"4",Batch_ID:"121",Batch_Name:"Raunak",Mento_Name:"Shatyam sir" ,Technologies:"React",Start_Date:"April",End_Date:"May",Status:"Good",Action:"Deployed"},
-    // {No:"5",Batch_ID:"121",Batch_Name:"Raunak",Mento_Name:"Shatyam sir" ,Technologies:"React",Start_Date:"April",End_Date:"May",Status:"Good",Action:"Deployed"}
-  ];
+  const data = [];
   for (let i = 0; i < 5; i++) {
     data.push({
       No: i,
@@ -125,7 +116,27 @@ function Table_card({ techValue = [] }) {
     selectedRowKeys,
     onChange: onSelectChange,
   };
-  // const hasSelected = selectedRowKeys.length > 0;
+
+
+  const editDatafun=()=>{
+
+    console.log("edit value");
+
+  }
+  const deleteDatafun=()=>{
+    console.log("delete value");
+  }
+
+  let renderFile1 = (
+    <>
+      <Pop_newBatch type="text" text="Batch Name"/>
+        <Pop_newBatch type="" text="Mentor Name"/>
+        <Pop_newBatch  text="Technologies"/>
+        <Pop_newBatch  text="Start Date"/>
+        <Pop_newBatch  text="End Date"/>
+    </>
+  );
+
   return (
     <Row>
       <Col className="batch_list" span={3}>
@@ -135,12 +146,9 @@ function Table_card({ techValue = [] }) {
         <Input placeholder="Search " prefix={<SearchOutlined />} />
       </Col>
       <Col>
-        {" "}
-        <Button_model btn_name="+ New Batch"/>
-        {/* <Button className="batch_btn">+ New Batch</Button> */}
+        <Button_model renderFile={renderFile1} pop_title={"Add new batch"} btn_name="+ New Batch"/>
       </Col>
       <Col span={24}>
-        {" "}
         <Table
           className="table"
           rowSelection={rowSelection}

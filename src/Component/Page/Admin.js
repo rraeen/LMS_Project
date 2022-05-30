@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import NewLogin from "../NewLogin";
 import '../Dashboard/dashboard.css'
+import ReusableTable from './../ReUse/ReusableTable';
 
 function Admin() {
  
@@ -11,7 +12,7 @@ return (
      
     <>
             <div className="fullScreen">
-              <h1>Admin</h1>
+             <ReusableTable />
             </div>
            
           </>

@@ -10,7 +10,7 @@ import 'antd/dist/antd.css';
 import NewLogin from "./Component/NewLogin";
 import Admin from "./Component/Page/Admin";
 import Mentor from "./Component/Page/Mentor";
-import Employee from "./Component/Page/Employee";
+import Employee from "./Component/Page/Request";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // // import Dashboard from "./Component/Dashboard/Dashboard";
 // // import Callme from "./Component/Reusable/Callme";
@@ -31,6 +31,12 @@ import Model_add from "./Component/Atom/Model1/Model_add";
 import Button_model from './Component/Atom/Model1/Button_model';
 import Pop_newBatch from './Component/Atom/Form_Popup/Pop_newBatch';
 import BtnLogin from './Component/Atom/BtnLogin';
+import Login_form from './Component/Atom/Login_form';
+import ReusableTable from './Component/ReUse/ReusableTable';
+
+
+
+
 
 
 
@@ -42,6 +48,7 @@ function App() {
   return (
     <div>
        <Dashboard/>
+       {/* <ReusableTable /> */}
 
        {/* <Pop_newBatch text='Batch Name' /> */}
       {/* // <Button_model  btn_name={"Raunak"}  />
@@ -52,7 +59,7 @@ function App() {
      {/* <Button_model /> */}
 
       {/* <NewLogin/> */}
-      {/*  ________________________ */}
+       {/* ________________________ */}
 
       {/* <BrowserRouter>
         <div className="App">

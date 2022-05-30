@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import batch from '../Assets/batch.png'
 
 function BtnFun(props) {
-  const [placement, SetPlacement] = useState('admin');
+  const [placement, SetPlacement] = useState('Batch');
 
 
   // let send_btn_data=()=>{
@@ -23,14 +23,14 @@ function BtnFun(props) {
   };
   return (
     <Radio.Group value={placement} onChange={placementChange}>
-    <Radio.Button  className='btn_btnfun' value="admin">
-      {placement==="admin"? <img className="img_logo" src={require("../Assets/batch.png")} alt=""/>: <img className="img_logo"src={require('../Assets/batch1.png')} alt=""/>}
+    <Radio.Button  className='btn_btnfun' value="Batch">
+      {placement==="Batch"? <img className="img_logo" src={require("../Assets/batch.png")} alt=""/>: <img className="img_logo"src={require('../Assets/batch1.png')} alt=""/>}
     </Radio.Button>
-    <Radio.Button  className='btn_btnfun' value="mentor">
-      {placement==="mentor"? <img className="img_logo" src={require("../Assets/team1.png")} alt=""/>: <img className="img_logo" src={require('../Assets/team.png')} alt=""/>}
+    <Radio.Button  className='btn_btnfun' value="Mentor">
+      {placement==="Mentor"? <img className="img_logo" src={require("../Assets/team1.png")} alt=""/>: <img className="img_logo" src={require('../Assets/team.png')} alt=""/>}
     </Radio.Button>
-    <Radio.Button  className='btn_btnfun' value="employee">
-      {placement==="employee"? <img  className="img_logo" src={require("../Assets/add1.png")} alt=""/>: <img className="img_logo" src={require('../Assets/add.png')} alt=""/>}
+    <Radio.Button  className='btn_btnfun' value="Request">
+      {placement==="Request"? <img  className="img_logo" src={require("../Assets/add1.png")} alt=""/>: <img className="img_logo" src={require('../Assets/add.png')} alt=""/>}
     </Radio.Button>
   </Radio.Group>
   )
