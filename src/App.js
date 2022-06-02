@@ -6,6 +6,7 @@
 // // import LoginCard from "./Component/LoginCard";
 // import "./Component/index.css";
 import "antd/dist/antd.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NewLogin from "./Component/NewLogin";
 import Admin from "./Component/Page/Branch";
@@ -35,13 +36,22 @@ import Login_form from "./Component/Atom/Login_form";
 import ReusableTable from "./Component/ReUse/ReusableTable";
 import Branch from "./Component/Page/Branch";
 import DropComp from "./Component/Atom/FormComp/DropComp";
-import EmployPage from "./Component/EmployLogin/EmployPage";
+import EmployPage from "./Component/EmployLogin/EmpResister";
 import MentorPage from "./Component/MentorLogin/MentorPage";
+import EmpResesterForm from "./Component/EmployLogin/EmpResesterForm";
+import EmpResister from "./Component/EmployLogin/EmpResister";
+import ResisterFormCard from './Component/EmployLogin/ResisterFormCard';
+import { TestOnClickRender } from './Component/Test/TestOnClickRender';
 
 function App() {
   // let arr=["male","female","other"]
   return (
-    // <Dashboard />
+    // <EmpResesterForm/>
+    // <EmpResister />
+    // <TestOnClickRender />
+    // <ResisterFormCard />
+    
+    <Dashboard />
     // <BtnLogin value='myButton' color='Red' bg_color='Yellow'/>
     // <BtnLogin bg_color='red' color='yello'/>
     //  <NewLogin/>
@@ -49,16 +59,16 @@ function App() {
     // <MentorPage/>
     // <EmployPage />
 
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<NewLogin />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Mentor" element={<MentorPage />} />
-          <Route path="/Employee" element={<EmployPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <div className="App">
+    //     <Routes>
+    //       <Route path="/" element={<NewLogin />} />
+    //       <Route path="/Dashboard" element={<Dashboard />} />
+    //       <Route path="/Mentor" element={<MentorPage />} />
+    //       <Route path="/Employee" element={<EmployPage />} />
+    //     </Routes>
+    //   </div>
+    // </BrowserRouter>
 
     // <><h1>hello</h1></>
     // <div>

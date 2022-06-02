@@ -181,13 +181,15 @@ function Branch({ techValue = [] }) {
 return (
   <>
   <ReusableTable 
-    tableTitle="Mentor list"
+    tableTitle="Batch list"
     modelTitle="Add new Mentor"
     btnName="+New Mentor"
     rowSelection={rowSelection1}
     columns={columns}
     data={data}
     renderFile={renderFile1}
+    
+
 
   />
 </>

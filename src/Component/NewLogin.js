@@ -133,8 +133,8 @@ function NewLogin() {
   };
 
   return (
-    <div className="container">
-      <Card className="card1">
+    <div className="con">
+      <Card className="card1"> 
         <Row className="first_row">
           <Col className="first_col" span={14}>
             <div>
@@ -174,9 +174,8 @@ function NewLogin() {
               </Row>
               <Row>
                 {" "}
-                <Input
+                <Input.Password
                   className="input"
-                  type="password"
                   name="Employee_pass"
                   onChange={updatefun}
                   value={data.Employee_pass}
