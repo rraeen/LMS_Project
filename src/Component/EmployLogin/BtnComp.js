@@ -5,9 +5,9 @@ import { fontFamily } from "@mui/system";
 import { fontSize } from "@mui/system";
 import { border } from "@mui/system";
 
-function BtnComp({ text }) {
+function BtnComp({ text,onClick=()=>{} }) {
   return (
-    <Button
+    <Button onClick={onClick}
       style={{
           display:"-webkit-inline-flex",
           

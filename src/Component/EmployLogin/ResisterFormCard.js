@@ -5,7 +5,7 @@ import { height } from "@mui/system";
 import BtnComp from "./BtnComp";
 import "./Rform.css";
 
-function ResisterFormCard({ renderFile,  bor=""}) {
+function ResisterFormCard({ renderFile,  bor="" ,previousFun=()=>{}, nextFun=()=>{}}) {
   return (
 <>
       <div className="cardRenderStyle" >
@@ -18,10 +18,10 @@ function ResisterFormCard({ renderFile,  bor=""}) {
         <Row justify="space-between" style={{ borderRadius: "8px" }}>
           <Col span={8}>
             {" "}
-            <BtnComp text={"Previous"} />
+            <BtnComp onClick={previousFun} text={"Previous"} />
           </Col>
           <Col >
-            <BtnComp text={"Next"} />
+            <BtnComp onClick={nextFun} text={"Next"} />
           </Col>
         </Row>
       </Card>

@@ -16,7 +16,7 @@ function EmpResesterForm() {
       <Pop_newBatch text="Employee ID" />    
            
           </Col>
-          <Col> <Pop_newBatch text="Employee Namw"/>    </Col>
+          <Col> <Pop_newBatch text="Employee Name"/>    </Col>
         </Row>
         <Row>
           <Col><DateComp value="Date of Joining" /></Col>

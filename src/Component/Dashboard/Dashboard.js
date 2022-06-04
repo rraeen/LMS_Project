@@ -55,7 +55,7 @@ let sideBar=(data)=>{
 
   return (
     <Layout>
-      <Header className="navbar">
+      <Header className="mynavbar">
         <Row between="xs">
           <Col xs={8}>
             <img src={logo} alt="" />
@@ -68,7 +68,7 @@ let sideBar=(data)=>{
           </Col>
 
           <Col xs={8}>
-            <BtnLogin value="Logout" borderRadius="3%"hight="50%" color="#075575" marginTop="2%" border="1px solid #075575" bg_color="white"/>
+            <BtnLogin value="Logout" className="btnLogout" borderRadius="3%"hight="50%" color="#075575" marginTop="2%" border="1px solid #075575" bg_color="white"/>
           </Col>
         </Row>
       </Header>

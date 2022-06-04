@@ -13,10 +13,16 @@
   width: auto;
   /* padding: 30px; */
 }
-.navbar {
+.mynavbar {
   justify-content: start;
   background-color: white;
   border: 1px solid rgb(201, 200, 200, 0.3);
+  
+}
+.btnLogout{
+    margin: auto !important;
+    text-align: center;
+   
 }
 
 

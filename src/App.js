@@ -47,11 +47,11 @@ function App() {
   // let arr=["male","female","other"]
   return (
     // <EmpResesterForm/>
-    // <EmpResister />
+    <EmpResister />
     // <TestOnClickRender />
     // <ResisterFormCard />
     
-    <Dashboard />
+    // <Dashboard />
     // <BtnLogin value='myButton' color='Red' bg_color='Yellow'/>
     // <BtnLogin bg_color='red' color='yello'/>
     //  <NewLogin/>

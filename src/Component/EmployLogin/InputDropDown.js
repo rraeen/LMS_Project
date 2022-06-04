@@ -21,7 +21,7 @@ function InputDropDown({
         
           allowClear
         >
-           { dropOption.map((val,idx)=><Option key={idx} value={val}>{val}</Option>)}
+           { dropOption.map((val,idx)=><Select.Option key={idx} value={val}>{val}</Select.Option>)}
          
         </Select>
     </>
