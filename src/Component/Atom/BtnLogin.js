@@ -4,7 +4,8 @@ import React from "react";
 import "./Atom.css";
 
 function BtnLogin({
-  btnFun = "",
+  
+  btnFun =()=>{},
   value = "Login",
   width = "",
   bg_color = "",

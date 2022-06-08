@@ -1,4 +1,4 @@
-import { Button, Col, Layout, } from "antd";
+import { Button, Col, Layout } from "antd";
 import React, { useEffect, useState } from "react";
 import "./dashboard.css";
 import logo from "../Assets/logo1.png";
@@ -16,11 +16,12 @@ import BtnFun from "./BtnFun";
 import Table_card from "./Table_card";
 import Employee from "../Page/Request";
 import Mentor from "./../Page/Mentor";
-import { fontSize } from '@mui/system';
-import BtnLogin from './../Atom/BtnLogin';
-import { borderRadius } from '@mui/system';
+import { fontSize } from "@mui/system";
+import BtnLogin from "./../Atom/BtnLogin";
+import { borderRadius } from "@mui/system";
 import Request from "../Page/Request";
 import Branch from "../Page/Branch";
+import { useNavigate } from "react-router";
 
 const { Header, Sider, Content } = Layout;
 
@@ -29,28 +30,27 @@ const { Header, Sider, Content } = Layout;
 //   _____________________________________________________________________________________
 
 function Dashboard() {
-    const [sidebarData, setsidebarData] = useState("Batch")
-    const [tech, settech] = useState(["react","angular","javascript"])
-    // ________________________________________button__________________________________________________
-    const [placement, SetPlacement] = useState('');
+  const [sidebarData, setsidebarData] = useState("Batch");
+  const [tech, settech] = useState(["react", "angular", "javascript"]);
+  let move = useNavigate();
+  // ________________________________________button__________________________________________________
+  const [placement, SetPlacement] = useState("");
 
-    // const placementChange = (e) => {
-    //     SetPlacement(e.target.value);
-    //   };
+  // const placementChange = (e) => {
+  //     SetPlacement(e.target.value);
+  //   };
   // ________________________________________________________________________________________
   useEffect(() => {
-
     console.log(sidebarData);
-    
-  
-   
-    
-  })
-  
-  
-let sideBar=(data)=>{
-    setsidebarData(data)
-}
+  });
+  let logoutFun = () => {
+    localStorage.setItem("status", "");
+    move("/");
+  };
+
+  let sideBar = (data) => {
+    setsidebarData(data);
+  };
   //   _____________________________________________________________________________________
 
   return (
@@ -68,50 +68,64 @@ let sideBar=(data)=>{
           </Col>
 
           <Col xs={8}>
-            <BtnLogin value="Logout" className="btnLogout" borderRadius="3%"hight="50%" color="#075575" marginTop="2%" border="1px solid #075575" bg_color="white"/>
+            <BtnLogin
+              value="Logout"
+              className="btnLogout"
+              btnFun={logoutFun}
+              borderRadius="3%"
+              hight="50%"
+              color="#075575"
+              marginTop="2%"
+              border="1px solid #075575"
+              bg_color="white"
+            />
           </Col>
         </Row>
       </Header>
       <Layout>
         <Sider className="sidebar col-2">
-            <BtnFun Clicked_btn={sideBar}/>
+          <BtnFun Clicked_btn={sideBar} />
         </Sider>
 
         <Content>
           <div className="site-card-border-less-wrapper">
             <div className="menu_div">
-             
               <a className="home_hover">Home</a>
               <span style={{ color: "black" }}>
-                <b style={{fontFamily:"Open Sans, Semibold" ,fontSize:"10px"}}>&nbsp;&gt;&nbsp;{sidebarData} </b>
+                <b
+                  style={{
+                    fontFamily: "Open Sans, Semibold",
+                    fontSize: "10px",
+                  }}
+                >
+                  &nbsp;&gt;&nbsp;{sidebarData}{" "}
+                </b>
               </span>
             </div>
             <Row>
-                <Col span={24}>
-            <Card
-              className="card_table"
-              bordered={false}
-              style={{ width: "98%" }}
-            >
-              <Row>
-             
-                <Col span={24}>
-                
-                  {" "}
-                
-               {
-              //  sidebarData==="Batch"? <Table_card techValue={tech}/>:
-               sidebarData==="Batch"? <Branch techValue={tech}/>:
-               
-               sidebarData==="Mentor"?<Mentor/>: 
-               sidebarData==="Request"?<Request/>: 
-              <h1>Login Page</h1>}  
-                </Col>
-              </Row>
-
-
-            </Card>
-            </Col>
+              <Col span={24}>
+                <Card
+                  className="card_table"
+                  bordered={false}
+                  style={{ width: "98%" }}
+                >
+                  <Row>
+                    <Col span={24}>
+                      {" "}
+                      {//  sidebarData==="Batch"? <Table_card techValue={tech}/>:
+                      sidebarData === "Batch" ? (
+                        <Branch techValue={tech} />
+                      ) : sidebarData === "Mentor" ? (
+                        <Mentor />
+                      ) : sidebarData === "Request" ? (
+                        <Request />
+                      ) : (
+                        <h1>Login Page</h1>
+                      )}
+                    </Col>
+                  </Row>
+                </Card>
+              </Col>
             </Row>
           </div>
         </Content>

@@ -8,7 +8,8 @@ function InputDropDown({
     text="",
     classStyle="",
     myStyle="inputStyle",
-    borderSide=""
+    borderSide="",
+    name=""
 }) {
   return (
     <>
@@ -18,6 +19,7 @@ function InputDropDown({
           placeholder=""
           onChange={onChangeDrop}
           bordered={borderSide}
+          name={name}
         
           allowClear
         >

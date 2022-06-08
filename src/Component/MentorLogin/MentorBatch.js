@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import NewLogin from "../NewLogin";
-import "../Dashboard/dashboard.css";
-import ReusableTable from "../ReUse/ReusableTable";
+import '../Dashboard/dashboard.css'
+import ReusableTable from '../ReUse/ReusableTable';
 import Pop_newBatch from "../Atom/Form_Popup/Pop_newBatch";
 import { Badge, DatePicker, Form } from "antd";
 import DropComp from "../Atom/FormComp/DropComp";
-import DateComp from "./../Atom/FormComp/DateComp";
+import DateComp from './../Atom/FormComp/DateComp';
 
-function MentorPage({ techValue = [] }) {
-  let MentorOption = ["Mentor1", "Mentor2", "Mentor3"];
-  let TechOption = ["react", "Angular", "javaScript"];
+function MentroBatch({ techValue = [] }) {
+  let MentorOption=["Mentor1", "Mentor2", "Mentor3"]
+  let TechOption=["react", "Angular", "javaScript"]
 
-  let rowSelection = () => {};
-  let columns = [
+  
+  let rowSelection = () => {}
+   let columns = [
     {
       title: "No",
       dataIndex: "No",
@@ -43,10 +44,12 @@ function MentorPage({ techValue = [] }) {
           {techValue.map((val, idx) => {
             return (
               <span key={idx}>
-                <Badge count={val} style={{ backgroundColor: "#086288" }} />
+                 <Badge count={val} style={{backgroundColor: '#086288'}} />
               </span>
             );
           })}
+
+         
         </>
       ),
     },
@@ -75,24 +78,15 @@ function MentorPage({ techValue = [] }) {
       render: () => {
         return (
           <>
-            <i
-              style={{ cursor: "pointer" }}
-              onClick={editDatafun}
-              class="fa-solid fa-pencil"
-            ></i>{" "}
-            &#160; &#160;
-            <i
-              style={{ cursor: "pointer" }}
-              onClick={deleteDatafun}
-              class="fa-solid fa-trash"
-            ></i>
+            <i style={{cursor: 'pointer'}}   onClick={editDatafun} class="fa-solid fa-pencil"></i> &#160; &#160;
+            <i style={{cursor: 'pointer'}}  onClick={deleteDatafun} class="fa-solid fa-trash"></i>
           </>
         );
       },
       //
     },
-  ];
-  const data = [];
+   ]
+   const data = [];
   for (let i = 0; i < 5; i++) {
     data.push({
       No: i,
@@ -103,7 +97,7 @@ function MentorPage({ techValue = [] }) {
       End_Date: "00-00-0000",
     });
   }
-
+ 
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -125,15 +119,19 @@ function MentorPage({ techValue = [] }) {
     onChange: onSelectChange,
   };
 
-  const editDatafun = () => {
+
+  const editDatafun=()=>{
+
     console.log("edit value");
-  };
-  const deleteDatafun = () => {
+
+  }
+  const deleteDatafun=()=>{
     console.log("delete value");
-  };
+  }
 
   let renderFile1 = (
     <>
+      {/* <Pop_newBatch type="text" text="Batch Name"/>
       <div
         style={{
           color: "#707070",
@@ -142,33 +140,60 @@ function MentorPage({ techValue = [] }) {
           fontFamily: "Open Sans, Regular",
         }}
       >
-        {" "}
-        <Form>
-          <Pop_newBatch type="text" text="Batch Name" />
-          <div style={{ marginLeft: "10px" }}>
-            <DropComp dropOption={MentorOption} value={"Mentor Name"} />
-            <DropComp dropOption={TechOption} value={"Technologies"} />
-          </div>
-          <DateComp value="Start Date" />
-          <DateComp value="End Date" />
+      <DropComp dropOption={["male","female","other"]} value={"Gender"}/> </div>
+
+      {/* <DropComp dropOption={["male","female","other"]}/>
+      <DropComp dropOption={["male","female","other"]}/> */}
+        {/* <Pop_newBatch type="" text="Mentor Name"/>
+        <Pop_newBatch  text="Technologies"/> 
+        <Pop_newBatch  text="Start Date"/>
+        <Pop_newBatch  text="End Date"/> */}
+
+        {/* ______________________________________________________ */}
+
+        <div
+        style={{
+          color: "#707070",
+          width: "20rem",
+          padding: "10px",
+          fontFamily: "Open Sans, Regular",
+        }}
+      
+      >   <Form>
+        <Pop_newBatch type="text" text="Batch Name"/>
+        <div style={{marginLeft:"10px"}}>
+       <DropComp dropOption={MentorOption} value={"Mentor Name"} />
+        <DropComp dropOption={TechOption} value={"Technologies"}  /></div>
+        <DateComp value="Start Date" />
+        <DateComp value="End Date" />
         </Form>
       </div>
-    </>
-  );
 
-  return (
-    <>
-      <ReusableTable
-        tableTitle="Batch list"
-        modelTitle="Add new Mentor"
-        btnName="+New Mentor"
-        rowSelection={rowSelection1}
-        columns={columns}
-        data={data}
-        renderFile={renderFile1}
-      />
+
+
     </>
+
+
   );
+   
+ 
+
+return (
+  <>
+  <ReusableTable 
+    tableTitle="Batch list"
+    modelTitle="Add new Mentor"
+    btnName="+New Mentor"
+    rowSelection={rowSelection1}
+    columns={columns}
+    data={data}
+    renderFile={renderFile1}
+    
+
+
+  />
+</>
+  ); 
 }
 
-export default MentorPage;
+export default MentroBatch;
