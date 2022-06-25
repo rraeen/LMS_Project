@@ -12,7 +12,7 @@ function ResisterFormCard({ renderFile,  bor="" ,previousFun=()=>{}, nextFun=()=
          {renderFile}
         
       </div>
-      <footer>
+      <footer >
       <Card className="cardComp2">
         <Row justify="space-between" style={{ borderRadius: "8px" }}>
           <Col span={8}>

@@ -1,0 +1,13 @@
+ .ant-layout-sider {
+    background-color: white;
+   max-width: 4rem !important;
+   min-width:4rem !important;
+   justify-content: center;
+   height: auto;
+ 
+   
+
+}
+.empSideBardiv{
+    height: 1000px !important ;
+}

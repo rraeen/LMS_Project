@@ -1,4 +1,4 @@
-import { Col, Form, Row, Tabs } from "antd";
+import { Col, Row, Tabs } from "antd";
 import React, { useState } from "react";
 import "antd/dist/antd.css";
 
@@ -20,6 +20,7 @@ import {
 } from "./FormsDetails";
 import CollepsFormReuse from "./CollepsFormReuse";
 import useKey from "./HandleKey/useKey";
+import { useNavigate } from 'react-router';
 
 const { TabPane } = Tabs;
 
@@ -32,6 +33,12 @@ function EmpResister() {
   console.log(resisterFormData);
 
   const [TabKey, setTabKey] = useState(1);
+  let move=useNavigate()
+
+  let saveAndNavigate=()=>{
+    move("/FormCompleat")
+  
+  }
 
   // ______________________________(usekey handle)_______________________________________
   const LeftArrow = () => {
@@ -52,6 +59,7 @@ function EmpResister() {
   // console.log(TabKey);
   let nextTabFun = () => {
     localStorage.setItem("newUser",resisterFormData)
+    saveAndNavigate();
     TabKey < 8 && setTabKey(TabKey + 1);
 
   };
