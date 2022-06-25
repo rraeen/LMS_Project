@@ -8,12 +8,11 @@ import "./Rform.css";
 function ResisterFormCard({ renderFile,  bor="" ,previousFun=()=>{}, nextFun=()=>{}}) {
   return (
 <>
-      <div className="cardRenderStyle" >
-          
+      <div className="cardRenderStyle" >   
          {renderFile}
         
       </div>
-      <footer>
+      <footer >
       <Card className="cardComp2">
         <Row justify="space-between" style={{ borderRadius: "8px" }}>
           <Col span={8}>

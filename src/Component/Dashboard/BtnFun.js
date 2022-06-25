@@ -6,10 +6,10 @@ function BtnFun(props) {
   const [placement, SetPlacement] = useState('Batch');
 
 
-  // let send_btn_data=()=>{
-  //   props.Clicked_btn(placement)
+  let send_btn_data=()=>{
+    props.Clicked_btn(placement)
 
-  // }
+  }
 
 
   const placementChange = (e) => {

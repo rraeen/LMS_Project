@@ -3,9 +3,7 @@ import { useNavigate } from "react-router";
 import "../Dashboard/dashboard.css";
 import ReusableTable from "../ReUse/ReusableTable";
 import Button_model from "./../Atom/Model1/Button_model";
-import { height, style } from "@mui/system";
-import { fontSize } from "@mui/system";
-import { width } from "@mui/system";
+
 import Pop_newBatch from "../Atom/Form_Popup/Pop_newBatch";
 import TextArea from "antd/lib/input/TextArea";
 import DropComp from "../Atom/FormComp/DropComp";
@@ -111,30 +109,7 @@ function Request() {
 
   let renderReject = (
     <>
-      {/* <div
-        style={{
-          color: "#707070",
-          width: "20rem",
-          padding: "10px",
-          fontFamily: "Open Sans, Regular",
-        }}
-      >
-        <span
-          style={{ color: "#707070", fontSize: "small", display: "inline" }}
-        >
-          {" "}
-          Reason{" "}
-        </span>
-        <br />
-        
-        <div> <DropComp dropOption={["male","female","other"]} value={"Gender"}/> </div>
-      
-        
-
-
-
-
-      </div> */}
+     
 
       <div
         style={{

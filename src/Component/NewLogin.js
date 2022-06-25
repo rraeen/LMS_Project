@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "antd";
 import "antd/dist/antd.css";
 import { Row, Col } from "antd";
@@ -11,16 +11,49 @@ import "antd/dist/antd.css";
 
 import axios from "axios";
 import { useNavigate } from "react-router";
-
+import { Link } from "react-router-dom";
 
 function NewLogin() {
-  let move = useNavigate();
-  const [db, setdb] = useState([]);
+  // ____________________________________________________________states___________________________________________________________________________
+  const [emp_error, setemp_error] = useState();
+  const [pass_error, setpass_error] = useState();
+  const [status, setstatus] = useState();
+  // const [logindata, setlogindata] = useState({
+  //   Admin: "Admin",
+  //   Mentor: "Mentor",
+  //   Mentor_pass: 123456,
+  //   Admin_Pass: 123456,
+  //   Employee: [],
+  // });
+  const [data, setdata] = useState({
+    Employee_id: "",
+    Employee_pass: "",
+  });
 
   const [user, setuser] = useState({
     uname: "",
     pass: "",
   });
+  // ____________________________________________________________________________________________________________________________________
+  // ________________________________________________________________(Http Validation)_____________________________________________________
+
+  let move = useNavigate();
+
+  useEffect(() => {
+    let s = localStorage.getItem("status");
+    setstatus(s);
+  }, []);
+
+  if(status){
+    status === "Admin"
+    ? move("/Dashboard")
+    : status === "Mentor"
+    ? move("/Mentor")
+    : status === "Employee"
+    ? move("/CreateAccount")
+    : move("/");
+    
+  }
 
   let httpLogin = async () => {
     try {
@@ -29,27 +62,28 @@ function NewLogin() {
         password: data.Employee_pass,
       });
       if (res.request.status == 200) {
-        console.log("login sucessfully");
-        res.data.user.username === "Admin" ? move("/Dashboard") : move("/");
+        let validuser = res.data.user.username;
+        // console.log("login sucessfully");
+
+        validuser === "Admin"
+          ? move("/Dashboard")
+          : validuser === "Mentor"
+          ? move("/Mentor")
+          : validuser === "Employee"
+          ? move("/CreateAccount")
+          : move("/");
+        saveToLocal(validuser);
       }
     } catch (err) {
       console.log(err.message);
+      setemp_error("*Invalid username");
+      setpass_error("*Invalid password");
     }
   };
 
-  const [logindata, setlogindata] = useState({
-    Admin: "Admin",
-    Mentor: "Mentor",
-    Mentor_pass: 123456,
-    Admin_Pass: 123456,
-    Employee: [],
-  });
-  const [data, setdata] = useState({
-    Employee_id: "",
-    Employee_pass: "",
-  });
-  const [emp_error, setemp_error] = useState();
-  const [pass_error, setpass_error] = useState();
+  // _________________________________________________________________________________________________________________________________________________
+
+  // _________________________________________________________(Internal validation)_____________________________________________________________________
 
   let updatefun = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -80,6 +114,8 @@ function NewLogin() {
       setemp_error("*Emplyee Id is required");
     }
   };
+
+  // ____________________________________________________________________________________________________________________________________
   let saveToLocal = (value) => {
     localStorage.setItem("status", value);
   };
@@ -88,53 +124,53 @@ function NewLogin() {
     passValidation();
     empValidation();
     if (empValidation() && passValidation) {
-      loginfun();
+      // loginfun();
       httpLogin();
 
-      let copydb = [...db];
-      copydb.push(logindata);
-      setdb(copydb);
-      localStorage.setItem("db", db);
-      setdata({
-        Employee_id: "",
-        Employee_pass: "",
-      });
+      // let copydb = [...db];
+      // copydb.push(logindata);
+      // setdb(copydb);
+      // localStorage.setItem("db", db);
+      //   setdata({
+      //     Employee_id: "",
+      //     Employee_pass: "",
+      //   });
     }
   };
 
-  let loginfun = () => {
-    if (
-      data.Employee_id == logindata.Admin &&
-      data.Employee_pass == logindata.Admin_Pass
-    ) {
-      console.log("Admin login");
-      // move("/Admin")
-      saveToLocal("Admin");
-    } else if (
-      data.Employee_id == logindata.Mentor &&
-      data.Employee_pass == logindata.Mentor_pass
-    ) {
-      console.log("Mentor login");
-      // move("/Mentor")
-      saveToLocal("Mentor");
-    } else {
-      console.log("Employee login");
-      // move("/Employee")
-      saveToLocal("Employee");
-    }
-  };
+  // let loginfun = () => {
+  //   if (
+  //     data.Employee_id == logindata.Admin &&
+  //     data.Employee_pass == logindata.Admin_Pass
+  //   ) {
+  //     console.log("Admin login");
+  //     // move("/Admin")
+  //     saveToLocal("Admin");
+  //   } else if (
+  //     data.Employee_id == logindata.Mentor &&
+  //     data.Employee_pass == logindata.Mentor_pass
+  //   ) {
+  //     console.log("Mentor login");
+  //     // move("/Mentor")
+  //     saveToLocal("Mentor");
+  //   } else {
+  //     console.log("Employee login");
+  //     // move("/Employee")
+  //     saveToLocal("Employee");
+  //   }
+  // };
 
   let handleDefault = (e) => {
     e.preventDefault();
   };
 
-  let moveToAdmin = () => {
-    // move("/Admin")
-  };
+  // let moveToAdmin = () => {
+  //   // move("/Admin")
+  // };
 
   return (
     <div className="con">
-      <Card className="card1"> 
+      <Card className="card1">
         <Row className="first_row">
           <Col className="first_col" span={14}>
             <div>
@@ -209,7 +245,7 @@ function NewLogin() {
                 style={{ fontSize: "120%", color: "white", padding: "10px" }}
                 className="changePass"
               >
-                change password
+                <Link to="/CreateAccount"> change password</Link>
               </a>
               <hr />
               Copyright &copy; 2018 Aleercio.com

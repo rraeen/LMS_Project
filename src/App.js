@@ -42,12 +42,19 @@ import EmpResesterForm from "./Component/EmployLogin/EmpResesterForm";
 import EmpResister from "./Component/EmployLogin/EmpResister";
 import ResisterFormCard from './Component/EmployLogin/ResisterFormCard';
 import { TestOnClickRender } from './Component/Test/TestOnClickRender';
+import MentorDashboard from './Component/MentorLogin/MentorDashboard';
+import HeaderEmpPage from "./Component/EmployLogin/HeaderEmpPage";
+import EmpResisterCompleat from "./Component/EmployLogin/EmpDashboard/EmpResisterCompleat";
+import EmpDashboardPage from './Component/EmployLogin/EmpDashboard/EmpDashboardPage';
+import NewLayout from "./Component/EmployLogin/NewLayout";
 
 function App() {
   // let arr=["male","female","other"]
   return (
     // <EmpResesterForm/>
-    <EmpResister />
+    // <EmpResister />
+    // <MentorDashboard/>
+
     // <TestOnClickRender />
     // <ResisterFormCard />
     
@@ -87,17 +94,23 @@ function App() {
     //   {/* <NewLogin/> */}
     //    {/* ________________________ */}
 
-    //   <BrowserRouter>
-    //     <div className="App">
+      // <BrowserRouter>
+      //   <div className="App">
 
-    //      <Routes>
-    //         <Route path="/Dashboard" element={<Dashboard />} />
-    //         <Route path="/" element={<NewLogin />} />
-    //         <Route path="/Mentor" element={<Mentor />} />
-    //         <Route path="/Employee" element={<Employee />} />
-    //       </Routes>
-    //     </div>
-    //   </BrowserRouter>
+      //    <Routes>
+      //       <Route path="/Dashboard" element={<Dashboard />} />
+      //       <Route path="/" element={<NewLogin />} />
+      //       <Route path="/Mentor" element={<MentorDashboard/>} />
+      //       <Route path="/Employee" element={<Employee />} />
+      //       <Route path="/CreateAccount" element={<EmpResister />} />
+      //       <Route path="/FormCompleat" element={<EmpResisterCompleat />} />
+    
+      //     </Routes>
+      //   </div>
+      // </BrowserRouter>
+      // <HeaderEmpPage/>
+      // <EmpDashboardPage />
+      <NewLayout />
     // </div>
   );
 }

@@ -1,12 +1,11 @@
-import { Col, Form, Row, Tabs } from "antd";
+import { Col, Row, Tabs } from "antd";
 import React, { useState } from "react";
 import "antd/dist/antd.css";
-// import { Tabs } from 'antd';
+
 import "./Rform.css";
 import "./tab.css";
 import EmpResesterForm from "./EmpResesterForm";
-import { style } from "@mui/system";
-import { width } from "@mui/system";
+
 import ResisterFormCard from "./ResisterFormCard";
 
 import {
@@ -14,41 +13,55 @@ import {
   BankDetailRenderFile,
   ContactRenderFile,
   EducationRender,
-
- 
-
-  
-
   ExperienceRenderFile,
-
- 
-
-  
-
   PrimaryRenderFile,
-
- 
-
-  
-
   SecondaryRenderfile,
-
- 
-
-  
-
   SkillRenderFile,
 } from "./FormsDetails";
 import CollepsFormReuse from "./CollepsFormReuse";
+import useKey from "./HandleKey/useKey";
+import { useNavigate } from 'react-router';
 
 const { TabPane } = Tabs;
 
 function EmpResister() {
-  const [TabKey, setTabKey] = useState(1);
+  const [resisterFormData, setresisterFormData] = useState({});
 
-  console.log(TabKey);
-  let nextTabFun = () => {
+  let sendFormData = (obj) => {
+    setresisterFormData({ ...resisterFormData, ...obj });
+  };
+  console.log(resisterFormData);
+
+  const [TabKey, setTabKey] = useState(1);
+  let move=useNavigate()
+
+  let saveAndNavigate=()=>{
+    move("/FormCompleat")
+  
+  }
+
+  // ______________________________(usekey handle)_______________________________________
+  const LeftArrow = () => {
+    // console.log("Left Arrow pressed");
+    TabKey > 1 && setTabKey(TabKey - 1);
+  };
+  const RightArrowFun = () => {
+    // console.log("Right Arrow pressed");
     TabKey < 8 && setTabKey(TabKey + 1);
+  };
+
+  useKey("ArrowLeft", LeftArrow);
+  useKey("ArrowRight", RightArrowFun);
+  // ____________________________________________________________________________________________
+
+  // ________________________(next &  previous  button handle)___________________________________
+
+  // console.log(TabKey);
+  let nextTabFun = () => {
+    localStorage.setItem("newUser",resisterFormData)
+    saveAndNavigate();
+    TabKey < 8 && setTabKey(TabKey + 1);
+
   };
   let previousTabFun = () => {
     TabKey > 1 && setTabKey(TabKey - 1);
@@ -57,6 +70,7 @@ function EmpResister() {
   const onKeyChange = (key) => {
     setTabKey(Number(key));
   };
+  // ________________________________________________________________________________________________
   return (
     <>
       {/* <div className="fullFormStyle"> */}
@@ -73,14 +87,14 @@ function EmpResister() {
               <ResisterFormCard
                 nextFun={nextTabFun}
                 previousFun={previousTabFun}
-                renderFile={<PrimaryRenderFile/>}
+                renderFile={<PrimaryRenderFile sendFormData={sendFormData} />}
               />
             </TabPane>
             <TabPane tab="Secondary Info" key="2">
               <ResisterFormCard
                 nextFun={nextTabFun}
                 previousFun={previousTabFun}
-                renderFile={<SecondaryRenderfile/>}
+                renderFile={<SecondaryRenderfile sendFormData={sendFormData} />}
               />
             </TabPane>
             <TabPane tab="Education Details" key="3">
@@ -89,7 +103,7 @@ function EmpResister() {
                 previousFun={previousTabFun}
                 renderFile={
                   <CollepsFormReuse
-                    RenderFile={<EducationRender/>}
+                    RenderFile={<EducationRender sendFormData={sendFormData} />}
                     header={"Education Type"}
                   />
                 }
@@ -101,7 +115,9 @@ function EmpResister() {
                 previousFun={previousTabFun}
                 renderFile={
                   <CollepsFormReuse
-                    RenderFile={<AddressRenderFile/>}
+                    RenderFile={
+                      <AddressRenderFile sendFormData={sendFormData} />
+                    }
                     header={"Address Type"}
                   />
                 }
@@ -111,7 +127,9 @@ function EmpResister() {
               <ResisterFormCard
                 nextFun={nextTabFun}
                 previousFun={previousTabFun}
-                renderFile={<BankDetailRenderFile/>}
+                renderFile={
+                  <BankDetailRenderFile sendFormData={sendFormData} />
+                }
               />
             </TabPane>
             <TabPane tab="Technical skills" key="6">
@@ -120,7 +138,7 @@ function EmpResister() {
                 previousFun={previousTabFun}
                 renderFile={
                   <CollepsFormReuse
-                    RenderFile={<SkillRenderFile/>}
+                    RenderFile={<SkillRenderFile sendFormData={sendFormData} />}
                     header={"Skill Type"}
                   />
                 }
@@ -132,7 +150,9 @@ function EmpResister() {
                 previousFun={previousTabFun}
                 renderFile={
                   <CollepsFormReuse
-                    RenderFile={<ExperienceRenderFile/>}
+                    RenderFile={
+                      <ExperienceRenderFile sendFormData={sendFormData} />
+                    }
                     header={"Exprience Type"}
                   />
                 }
@@ -144,7 +164,9 @@ function EmpResister() {
                 previousFun={previousTabFun}
                 renderFile={
                   <CollepsFormReuse
-                    RenderFile={<ContactRenderFile/>}
+                    RenderFile={
+                      <ContactRenderFile sendFormData={sendFormData} />
+                    }
                     header={"Contact Type"}
                   />
                 }
@@ -153,6 +175,8 @@ function EmpResister() {
           </Tabs>
         </Col>
       </Row>
+      <br />
+
       {/* </div> */}
       {/* </div> */}
     </>

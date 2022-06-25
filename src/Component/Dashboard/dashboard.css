@@ -20,8 +20,9 @@
   
 }
 .btnLogout{
-    margin: auto !important;
+    /* margin: auto !important; */
     text-align: center;
+  
    
 }
 
@@ -321,4 +322,8 @@ a:hover{
 .home_hover {
     color:  gray;
 
+}
+.menu_div a{
+    display:flex;
+    float: left;
 }

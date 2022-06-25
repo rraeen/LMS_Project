@@ -131,26 +131,6 @@ function Branch({ techValue = [] }) {
 
   let renderFile1 = (
     <>
-      {/* <Pop_newBatch type="text" text="Batch Name"/>
-      <div
-        style={{
-          color: "#707070",
-          width: "20rem",
-          padding: "10px",
-          fontFamily: "Open Sans, Regular",
-        }}
-      >
-      <DropComp dropOption={["male","female","other"]} value={"Gender"}/> </div>
-
-      {/* <DropComp dropOption={["male","female","other"]}/>
-      <DropComp dropOption={["male","female","other"]}/> */}
-        {/* <Pop_newBatch type="" text="Mentor Name"/>
-        <Pop_newBatch  text="Technologies"/> 
-        <Pop_newBatch  text="Start Date"/>
-        <Pop_newBatch  text="End Date"/> */}
-
-        {/* ______________________________________________________ */}
-
         <div
         style={{
           color: "#707070",
